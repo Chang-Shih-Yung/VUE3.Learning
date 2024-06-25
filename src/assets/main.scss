@@ -1,0 +1,177 @@
+// 1. 变量定义
+// --------------------------------
+
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-font-size: 16px;
+$line-height: 1.5;
+
+// 2. 混合宏定义 (Mixins)
+// --------------------------------
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($property, $duration) {
+  transition: $property $duration ease-in-out;
+}
+
+// 3. 全局样式
+// --------------------------------
+
+html {
+  font-size: $base-font-size;
+  line-height: $line-height;
+}
+
+body {
+  font-family: $font-stack;
+  color: $primary-color;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+// 4. 重置样式
+// --------------------------------
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// 5. 字体排版样式
+// --------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem 0;
+}
+
+// 6. 按钮样式
+// --------------------------------
+
+.button {
+  @include transition(all, 0.3s);
+  background-color: $secondary-color;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+// 7. 表单样式
+// --------------------------------
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+// 8. 布局样式
+// --------------------------------
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+
+  .col {
+    flex: 1;
+    padding: 0 0.5rem;
+  }
+}
+
+// 9. 响应式设计
+// --------------------------------
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+
+    a {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+// 10. 组件样式
+// --------------------------------
+
+.navbar {
+  background-color: $primary-color;
+  padding: 1rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+// 11. 动画样式
+// --------------------------------
+
+.fade-slide-leave-active,
+.fade-slide-enter-active {
+  transition: all 0.3s;
+}
+
+.fade-slide-enter-from {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.fade-slide-leave-to {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+// 使用场景示例 
+
+.fade-slide-example {
+  &.fade-slide-enter-active,
+  &.fade-slide-leave-active {
+    transition: all 0.3s;
+  }
+
+  &.fade-slide-enter-from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+
+  &.fade-slide-leave-to {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+}

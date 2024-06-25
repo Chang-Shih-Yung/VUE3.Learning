@@ -29,18 +29,15 @@
     "jsdom": "^24.1.0",
     "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
+    "sass": "^1.77.6",
+    "sass-loader": "^14.2.1",
     "vite": "^5.3.1",
     "vite-plugin-vue-devtools": "^7.3.1",
     "vitest": "^1.6.0"
   },
   "lint-staged": {
-
-  "*.{vue,js,jsx}": [
-
-  "eslint --fix"
-
-  ]
-
+    "*.{vue,js,jsx}": [
+      "eslint --fix"
+    ]
   }
-
 }
