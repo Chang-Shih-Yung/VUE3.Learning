@@ -1,9 +1,9 @@
 <script setup>
 import { RouterView } from 'vue-router'
 </script>
-
 <template>
-  <router-view></router-view>
+  <div>
+    布局架子
+    <router-view></router-view>
+  </div>
 </template>
-
-<style scoped></style>

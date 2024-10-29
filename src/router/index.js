@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/components/Home.vue'
+import LoginPage from '@/views/login/loginPage.vue'
 //初始化vue-router4.x(vue3)
 const router = createRouter({
   //import.meta.env.BASE_URL是vite的全局变量，用于获取项目的根路径
@@ -7,14 +7,26 @@ const router = createRouter({
   //歷史紀錄模式，不是hash模式
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    //路由結構配置
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/login',
+      name: 'login',
+      component: LoginPage
     },
     {
-      path: '/TestDemo',
-      component: () => import('@/components/TestDemo.vue')
+      path: '/',
+      component: () => import('@/views/layout/LayoutContainer.vue')
+    },
+    {
+      path: '/',
+      component: () => import('@/views/layout/LayoutContainer.vue'),
+      redirect: '/article/manage',
+      children: [
+        {
+          path: '/article/manage',
+          component: () => import('@/views/article/articleManage.vue')
+        }
+      ]
     }
   ]
 })
