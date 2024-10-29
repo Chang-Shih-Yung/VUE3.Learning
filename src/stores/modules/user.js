@@ -1,12 +1,10 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-
+import { ref } from 'vue'
 //用戶模塊 ex:token setToken removeToken
 export const useUerStore = defineStore(
   'bigUser',
   () => {
-    const token = ref(0)
-    const doubleCount = computed(() => token.value * 2)
+    const token = ref('')
     function setToken(newToken) {
       token.value = newToken
     }
@@ -14,7 +12,7 @@ export const useUerStore = defineStore(
       token.value = ''
     }
 
-    return { token, doubleCount, removeToken, setToken }
+    return { token, removeToken, setToken }
   },
-  { persist: true } //加入持久化配置
+  { persist: true } //加入持久化配置，刷新頁面token不丟失
 )

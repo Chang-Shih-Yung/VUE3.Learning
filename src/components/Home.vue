@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { useUerStore } from '@/stores'
 import { useRouter } from 'vue-router'
 // import { useRoute } from 'vue-router'
@@ -12,7 +12,7 @@ const router = useRouter()
 // }
 
 const test = () => {
-  router.push('/TestDemo')
+  router.push('/')
 }
 const userStore = useUerStore()
 </script>
@@ -31,4 +31,4 @@ const userStore = useUerStore()
 .home-page {
   margin: 2rem;
 }
-</style>
+</style> -->

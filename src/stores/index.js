@@ -13,3 +13,4 @@ export default pinia
 //接收user模塊的所有按需導出
 //從此別的模塊引入只需要寫import { xxx } from '@/stores'
 export * from './modules/user'
+export * from './modules/counter'

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginPage from '@/views/login/loginPage.vue'
+import LoginPage from '@/views/login/LoginPage.vue'
 //初始化vue-router4.x(vue3)
 const router = createRouter({
   //import.meta.env.BASE_URL是vite的全局变量，用于获取项目的根路径
@@ -20,11 +20,30 @@ const router = createRouter({
     {
       path: '/',
       component: () => import('@/views/layout/LayoutContainer.vue'),
+      //redirect 属性用于将一个路径重定向到另一个路径。它可以用于简化路由配置
+      //这意味着当用户访问根路径 / 时，他们会自动被重定向到
+      //非同步
       redirect: '/article/manage',
       children: [
         {
           path: '/article/manage',
-          component: () => import('@/views/article/articleManage.vue')
+          component: () => import('@/views/article/ArticleManage.vue')
+        },
+        {
+          path: '/article/channel',
+          component: () => import('@/views/article/ArticleChannel.vue')
+        },
+        {
+          path: '/user/password',
+          component: () => import('@/views/user/UserPassword.vue')
+        },
+        {
+          path: '/user/profile',
+          component: () => import('@/views/user/UserProfile.vue')
+        },
+        {
+          path: '/user/avatar',
+          component: () => import('@/views/user/UserAvatar.vue')
         }
       ]
     }
