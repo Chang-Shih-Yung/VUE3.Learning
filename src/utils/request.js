@@ -13,7 +13,7 @@ const baseURL = 'http://big-event-vue-api-t.itheima.net'
 //創建axios實例
 const instance = axios.create({
   baseURL,
-  timeout: 10000 // 设置超时时间为 10 秒
+  timeout: 5000 // 设置超时时间为 5 秒
 })
 
 // 请求拦截器

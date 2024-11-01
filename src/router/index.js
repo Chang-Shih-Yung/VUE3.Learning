@@ -14,16 +14,15 @@ const router = createRouter({
       component: LoginPage
     },
     {
-      path: '/',
-      component: () => import('@/views/layout/LayoutContainer.vue')
-    },
-    {
+      //根路徑是layoutContainer，
       path: '/',
       component: () => import('@/views/layout/LayoutContainer.vue'),
+      ///layoutContainer是一級路由
       //redirect 属性用于将一个路径重定向到另一个路径。它可以用于简化路由配置
-      //这意味着当用户访问根路径 / 时，他们会自动被重定向到
+      //这意味着当用户访问根路径 /layoutContainer 时，他们会自动被重定向到 /article/manage
       //非同步
       redirect: '/article/manage',
+      //以下是二級路由(呈現方式都會是一級+二級)
       children: [
         {
           path: '/article/manage',
